@@ -415,10 +415,10 @@ namespace ed {
 			ImGui::NextColumn();
 
 			ImGui::PushItemWidth(-1);
-			float fov = glm::degrees(*FunctionVariableManager::LoadFloat(m_var->Arguments, 0));
+			float fov = *FunctionVariableManager::LoadFloat(m_var->Arguments, 0);
 			if (ImGui::SliderAngle(("##fovAngle" + std::string(m_var->Name)).c_str(), &fov, 0, 180))
 				ret = true;
-			*FunctionVariableManager::LoadFloat(m_var->Arguments, 0) = glm::radians(fov);
+			*FunctionVariableManager::LoadFloat(m_var->Arguments, 0) = fov;
 			ImGui::NextColumn();
 
 			ImGui::Text("Aspect ratio:");
